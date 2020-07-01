@@ -9,7 +9,8 @@ services:
             - 8080:8080
             - 8081:8081
         restart: always
-
+        volumes:
+            - certs:/etc/ssl/private
     nginx:
         depends_on:
             - reverseproxy
