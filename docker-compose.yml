@@ -6,21 +6,6 @@ services:
         image: reverseproxy
         ports:
             - 80:80
-            - 8080:8080
-            - 8081:8081
-        restart: always
-        volumes:
-            - certs:/etc/ssl/private
-    nginx:
-        depends_on:
-            - reverseproxy
-        image: nginx:alpine
-        restart: always
-
-    apache:
-        depends_on:
-            - reverseproxy
-        image: httpd:alpine
         restart: always
 
 networks:
