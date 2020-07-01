@@ -21,3 +21,8 @@ services:
             - reverseproxy
         image: httpd:alpine
         restart: always
+
+networks:
+    default:
+        external:
+            name: nginx-proxy
