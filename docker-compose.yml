@@ -7,7 +7,18 @@ services:
         ports:
             - 80:80
         restart: always
+        volumes:
+            - "./reverseproxy/apps:/etc/nginx/conf.d/sites-enabled"
+            - static_volume:/home/app/hexia/staticfiles
 
+volumes:
+    static_volume:
+        external:
+            name: hexia-site_static_volume
+    media_volume:
+        external:
+            name: hexia-site_media_volume
+        
 networks:
     default:
         external:
